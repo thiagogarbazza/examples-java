@@ -1,0 +1,37 @@
+<ui:composition  
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/master.xhtml">
+	
+	<ui:define name="conteudo">
+		
+		<h:form id="frmWelcome">
+		
+			<h:commandLink value="Voltar" action="hello" />
+			
+			<div>
+			<fieldset>
+				<legend>Endereço residencial</legend>
+				
+				#{helloBean.residencial}
+			</fieldset>
+			
+			<fieldset>
+				<legend>Endereço de trabalho</legend>
+				
+				#{helloBean.trabalho}
+			</fieldset>
+			
+			<fieldset>
+				<legend>Endereço de entrega</legend>
+				
+				#{helloBean.entrega}
+			</fieldset>
+			
+			</div>
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>

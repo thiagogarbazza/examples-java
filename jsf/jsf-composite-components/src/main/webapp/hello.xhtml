@@ -1,0 +1,25 @@
+<ui:composition  
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:mc="http://java.sun.com/jsf/composite/myComponents"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/master.xhtml">
+	
+	<ui:define name="conteudo">
+	
+		<h:form id="frmhello" prependId="false">
+			<mc:endereco id="endResidencial" label="Endereço residencial" 
+				value="#{helloBean.residencial}" />
+			
+			<mc:endereco id="endTrabalho" label="Endereço de trabalho" required="true" 
+				value="#{helloBean.trabalho}" />
+				
+			<mc:endereco id="endEntrega" label="Endereço de entrega" disabled="true" 
+				value="#{helloBean.entrega}" />
+			
+			<h:commandButton value="Bem vindo" action="welcome"></h:commandButton>
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>

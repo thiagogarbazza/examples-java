@@ -1,0 +1,47 @@
+<ui:component 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<cc:interface>
+	
+		<cc:attribute name="inputId" required="true" type="java.lang.String" />
+		<cc:attribute name="label" required="true" type="java.lang.String" />
+
+		<cc:attribute name="labelSimbol" default=":" type="java.lang.String" />
+		
+		<cc:attribute name="disabled" default="false" type="java.lang.Boolean" />
+		<cc:attribute name="required" default="false" type="java.lang.Boolean" />
+
+		<cc:attribute name="style" type="java.lang.String" />
+		<cc:attribute name="styleClass" type="java.lang.String" />
+	
+		<cc:attribute name="title" type="java.lang.String" />
+		
+	</cc:interface>
+	
+	<cc:implementation>
+		
+		<p:outputPanel id="inputBox" style="#{cc.attrs.style}" layout="block"
+					styleClass="inputBox-container
+					#{cc.attrs.disabled eq true ? ' disabled ' : ''}
+					#{cc.attrs.required eq true ? ' required ' : ''}
+					#{cc.attrs.styleClass}" 
+					title="#{cc.attrs.title}">
+						
+			<h:outputLabel id="label" styleClass="inputBox-label" 
+						value="#{cc.attrs.label}#{cc.attrs.labelSimbol}" for="#{cc.attrs.inputId}" />
+			
+			<p:outputPanel id="content" styleClass="inputBox-content" layout="block">
+				<cc:insertChildren />
+			</p:outputPanel>
+			
+			<h:message id="message" styleClass="inputBox-message" for="#{cc.attrs.inputId}" />
+			
+		</p:outputPanel>
+		
+	</cc:implementation>
+	
+</ui:component>

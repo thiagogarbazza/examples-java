@@ -1,0 +1,92 @@
+<ui:component 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:mc="http://java.sun.com/jsf/composite/myComponents"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<cc:interface componentType="enderecoComponent">
+	
+		<cc:attribute name="value" required="true" type="exemplos.jsf.model.Endereco" />
+	
+		<cc:attribute name="label" required="true" type="java.lang.String" />
+		
+		<cc:attribute name="disabled" default="false" type="java.lang.Boolean" />
+		<cc:attribute name="required" default="false" type="java.lang.Boolean" />
+
+		<cc:attribute name="style" type="java.lang.String" />
+		<cc:attribute name="styleClass" type="java.lang.String" />
+		
+	</cc:interface>
+	
+	<cc:implementation>
+		
+		<p:outputPanel id="enderecoBox" style="#{cc.attrs.style}" layout="block"
+					styleClass="inputBox-container
+					#{cc.attrs.disabled eq true ? ' disabled ' : ''}
+					#{cc.attrs.required eq true ? ' required ' : ''}
+					#{cc.attrs.styleClass}" 
+					title="#{cc.attrs.title}">
+					
+			<fieldset>
+				<legend>#{cc.attrs.label}</legend>
+				
+				<mc:inputBox id="cepBox" styleClass="endereco-cep" label="CEP" 
+							inputId="cep" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<p:inputMask id="cep" value="#{cc.attrs.value.cep}" mask="99999-999" disabled="#{cc.attrs.disabled}" >
+					</p:inputMask> 
+				</mc:inputBox>
+				
+				<mc:inputBox id="tipoLogradouroBox" styleClass="endereco-tipo-logradouro" label="Tipo Logradouro" 
+							inputId="tipoLogradouro" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:selectOneMenu id="tipoLogradouro" value="#{cc.attrs.value.tipoLogradouro}" disabled="#{cc.attrs.disabled}">
+						<f:selectItems value="#{cc.tiposLogradouro}" />
+					</h:selectOneMenu>
+				</mc:inputBox>
+				
+				<mc:inputBox id="logradouroBox" styleClass="endereco-logradouro" label="Logradouro" 
+							inputId="logradouro" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:inputText id="logradouro" value="#{cc.attrs.value.logradouro}" disabled="#{cc.attrs.disabled}" >
+					</h:inputText> 
+				</mc:inputBox>	
+				
+				<mc:inputBox id="numeroBox" styleClass="endereco-numero" label="Número" 
+							inputId="numero" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:inputText id="numero" value="#{cc.attrs.value.numero}" disabled="#{cc.attrs.disabled}" >
+					</h:inputText> 
+				</mc:inputBox>	
+				
+				<mc:inputBox id="complementoBox" styleClass="endereco-complemento" label="Complemento" 
+							inputId="complemento" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:inputText id="complemento" value="#{cc.attrs.value.complemento}" disabled="#{cc.attrs.disabled}" >
+					</h:inputText> 
+				</mc:inputBox>	
+				
+				<mc:inputBox id="bairroBox" styleClass="endereco-bairro" label="Bairro" 
+							inputId="bairro" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:inputText id="bairro" value="#{cc.attrs.value.bairro}" disabled="#{cc.attrs.disabled}" >
+					</h:inputText> 
+				</mc:inputBox>	
+				
+				<mc:inputBox id="cidadeBox" styleClass="endereco-cidade" label="Cidade" 
+							inputId="cidade" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:inputText id="cidade" value="#{cc.attrs.value.cidade}" disabled="#{cc.attrs.disabled}" >
+					</h:inputText> 
+				</mc:inputBox>	
+				
+				<mc:inputBox id="ufBox" styleClass="endereco-uf" label="UF" 
+							inputId="uf" disabled="#{cc.attrs.disabled}" requered="#{cc.attrs.required}" >
+					<h:selectOneMenu id="uf" value="#{cc.attrs.value.uf}" disabled="#{cc.attrs.disabled}">
+						<f:selectItems value="#{cc.ufs}" />
+					</h:selectOneMenu>
+				</mc:inputBox>
+				
+			</fieldset>
+						
+		</p:outputPanel>
+		
+	</cc:implementation>
+	
+</ui:component>

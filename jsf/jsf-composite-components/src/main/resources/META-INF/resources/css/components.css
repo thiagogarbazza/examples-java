@@ -1,0 +1,86 @@
+   
+ .endereco-box{
+ 
+ }
+ 
+.inputBox-container input,
+.inputBox-container input.ui-inputfield, 
+.inputBox-container select,
+.inputBox-container textarea {
+	outline: 0;
+	border: none;
+	margin: 0;
+	font-size: 12px;
+	color: #494949;
+	background-color: transparent;
+	width: 100%;
+	max-width: 100%;
+	resize: none;
+}
+
+.inputBox-container {
+	display: block;
+	float: left;
+	margin: 10px 20px 0 0;
+	min-width: 100px;
+}
+
+.inputBox-container .inputBox-label {
+	display: block;
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.inputBox-container .inputBox-content {
+	min-height: 16px;
+	display: block;
+	clear: both;
+	outline: none;
+	border: 1px solid #E5E5E5;
+	border-left-width: 4px;
+	border-radius: 4px;
+	padding: 5px 2px 5px 2px;
+	width: 99%;
+	max-width: 99%;
+	min-width: 100px;
+}
+
+.inputBox-container .inputBox-content label{
+	display: block;
+	float: left;
+	margin: 1px 5px 0 0;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.inputBox-container .inputBox-content table input {
+	display: block;
+	float: left;
+	margin: 0 5px;
+}
+
+/* Campo desabilitado  
+   ========================================================================== */
+   
+.inputBox-container.disabled {
+	-moz-opacity: 0.50;
+	filter: alpha(opacity = 50);
+	opacity: 0.50;
+}
+
+.inputBox-container.disabled .inputBox-label {
+	text-decoration: line-through;
+}
+
+/* Campo obrigatório  
+   ========================================================================== */
+
+.inputBox-container.required {}
+
+.inputBox-container.required .inputBox-label {}
+
+.inputBox-container.required .inputBox-content {
+	border-left-color: #990000 !important;
+}

@@ -1,0 +1,17 @@
+fieldset {
+	float: left;
+	width: 98%;
+	margin: 15px auto;
+	padding: 15px 10px 10px;
+	border: 1px solid #E5E5E5;
+	border-radius: 10px;
+	box-shadow: 0 01px 0 0 #E5E5E5;
+}
+
+fieldset legend {
+	font-size: 13px;
+	padding: 0 5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: default;
+}

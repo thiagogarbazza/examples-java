@@ -1,0 +1,17 @@
+<ui:composition  
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/master.xhtml">
+	
+	<ui:define name="conteudo">
+	
+		<h:form id="frmhello">
+			<h:outputText value="Seu nome:"></h:outputText>
+			<h:inputText value="#{helloBean.name}" rendered="true"></h:inputText>
+			<h:commandButton value="Bem vindo" action="welcome"></h:commandButton>
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>
