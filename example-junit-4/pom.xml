@@ -10,9 +10,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>example-junit-jupiter</artifactId>
-  <name>Examples » Junit jupiter</name>
-  <description>Exemplo de configuração do junit jupiter.</description>
+  <artifactId>example-junit-4</artifactId>
+  <name>Examples » Junit 4</name>
+  <description>Exemplo de configuração do junit 4.</description>
 
   <properties>
     <project.main.basedir>..</project.main.basedir> <!--Apontar para a raiz do projeto-->
@@ -20,13 +20,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-launcher</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

@@ -13,6 +13,7 @@
   <description>Vários exemplos de uso do java e suas libs</description>
 
   <modules>
+    <module>example-junit-4</module>
     <module>example-junit-jupiter</module>
   </modules>
 
@@ -28,6 +29,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <dependency.junit-4.version>4.13</dependency.junit-4.version>
     <dependency.junit-jupiter.version>5.6.0</dependency.junit-jupiter.version>
     <dependency.junit-platform-launcher.version>1.6.0</dependency.junit-platform-launcher.version>
     <dependency.lombok.version>1.18.10</dependency.lombok.version>
@@ -48,20 +50,22 @@
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.jacoco.reportPaths>
-      ${project.basedir}/target/coverage-reports/jacoco-unit-test.exec,
-      ${project.basedir}/target/coverage-reports/jacoco-integration-test.exec,
+      ${project.basedir}/target/coverage-reports/jacoco-unit-test.exec, ${project.basedir}/target/coverage-reports/jacoco-integration-test.exec,
       ${project.basedir}/target/coverage-reports/jacoco-acceptance-test.exec,
     </sonar.jacoco.reportPaths>
     <sonar.test.exclusions>
-      **/src/test/**/*,
-      **/src/test-unit/**/*,
-      **/src/test-integration/**/*,
-      **/src/test-acceptance/**/*
+      **/src/test/**/*, **/src/test-unit/**/*, **/src/test-integration/**/*, **/src/test-acceptance/**/*
     </sonar.test.exclusions>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${dependency.junit-4.version}</version>
+        <scope>test</scope>
+      </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
@@ -82,6 +86,13 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
 
   <build>
     <pluginManagement>
