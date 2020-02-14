@@ -15,6 +15,7 @@
   <modules>
     <module>example-junit-4</module>
     <module>example-junit-jupiter</module>
+    <module>example-hibernate-enum-identifiable</module>
   </modules>
 
   <properties>
@@ -29,9 +30,14 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <dependency.commons-lang3.version>3.6</dependency.commons-lang3.version>
+    <dependency.commons-collections4.version>4.1</dependency.commons-collections4.version>
+    <dependency.commons-logging.version>1.2</dependency.commons-logging.version>
     <dependency.junit-4.version>4.13</dependency.junit-4.version>
     <dependency.junit-jupiter.version>5.6.0</dependency.junit-jupiter.version>
     <dependency.junit-platform-launcher.version>1.6.0</dependency.junit-platform-launcher.version>
+    <dependency.h2.version>1.4.200</dependency.h2.version>
+    <dependency.hibernate-core.version>5.4.11.Final</dependency.hibernate-core.version>
     <dependency.lombok.version>1.18.10</dependency.lombok.version>
 
     <plugin.build-helper.version>3.0.0</plugin.build-helper.version>
@@ -61,10 +67,30 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>${dependency.commons-logging.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${dependency.h2.version}</version>
+      </dependency>
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${dependency.junit-4.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${dependency.commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${dependency.commons-collections4.version}</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
@@ -77,6 +103,11 @@
         <artifactId>junit-platform-launcher</artifactId>
         <version>${dependency.junit-platform-launcher.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${dependency.hibernate-core.version}</version>
       </dependency>
       <dependency>
         <groupId>org.projectlombok</groupId>
