@@ -3,19 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>example-parent</artifactId>
     <groupId>com.github.thiagogarbazza.examples-java</groupId>
+    <artifactId>example-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>example-hibernate-enum-identifiable</artifactId>
-  <name>Examples » Hibernate enum identifiable</name>
-  <description>Exemplo de configuração de ENUM.</description>
-
-  <properties>
-    <project.main.basedir>..</project.main.basedir> <!--Apontar para a raiz do projeto-->
-  </properties>
+  <artifactId>example-hibernate-envers-auditing</artifactId>
+  <name>Examples » Hibernate envers auditing</name>
+  <description>Exemplo de configuração de hibernate envers auditing.</description>
 
   <dependencies>
     <dependency>
@@ -26,6 +22,10 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -41,6 +41,9 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
+    </dependency>
   </dependencies>
-
 </project>
