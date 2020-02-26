@@ -18,6 +18,7 @@
     <module>example-jackson-object-mapper</module>
     <module>example-junit-4</module>
     <module>example-junit-jupiter</module>
+    <module>example-apache-poi-excel</module>
   </modules>
 
   <properties>
@@ -32,6 +33,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <dependency.apache-poi.version>4.1.2</dependency.apache-poi.version>
     <dependency.commons-lang3.version>3.9</dependency.commons-lang3.version>
     <dependency.commons-collections4.version>4.4</dependency.commons-collections4.version>
     <dependency.commons-logging.version>1.2</dependency.commons-logging.version>
@@ -110,6 +112,11 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-collections4</artifactId>
         <version>${dependency.commons-collections4.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${dependency.apache-poi.version}</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
