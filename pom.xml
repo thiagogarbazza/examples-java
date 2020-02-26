@@ -32,7 +32,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <dependency.commons-lang3.version>3.6</dependency.commons-lang3.version>
+    <dependency.commons-lang3.version>3.9</dependency.commons-lang3.version>
     <dependency.commons-collections4.version>4.4</dependency.commons-collections4.version>
     <dependency.commons-logging.version>1.2</dependency.commons-logging.version>
     <dependency.jackson.version>2.10.2</dependency.jackson.version>
@@ -40,8 +40,8 @@
     <dependency.junit-jupiter.version>5.6.0</dependency.junit-jupiter.version>
     <dependency.junit-platform-launcher.version>1.6.0</dependency.junit-platform-launcher.version>
     <dependency.h2.version>1.4.200</dependency.h2.version>
-    <dependency.hibernate-core.version>5.4.11.Final</dependency.hibernate-core.version>
-    <dependency.lombok.version>1.18.10</dependency.lombok.version>
+    <dependency.hibernate-core.version>5.4.12.Final</dependency.hibernate-core.version>
+    <dependency.lombok.version>1.18.12</dependency.lombok.version>
 
     <plugin.build-helper.version>3.0.0</plugin.build-helper.version>
     <plugin.jacoco-maven.version>0.8.5</plugin.jacoco-maven.version>
