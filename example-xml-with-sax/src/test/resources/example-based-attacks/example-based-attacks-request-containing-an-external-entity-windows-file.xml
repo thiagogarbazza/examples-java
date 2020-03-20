@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data [
+  <!ELEMENT data (#ANY)>
+  <!ENTITY file SYSTEM "file:///c:/windows/win.ini">
+  ]>
+<data>&file;</data>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <for>&lt;?xml version="1.0"?&gt;&lt;class&gt;&lt;student rollno="393"&gt;&lt;firstname&gt;Dinkar&lt;/firstname&gt;</for>
+  <for>&lt;lastname&gt;Kad&lt;/lastname&gt;&lt;nickname&gt;Dinkar&lt;/nickname&gt;&lt;marks&gt;85&lt;/marks&gt;</for>
+  <for>&lt;/student&gt;&lt;student rollno="493"&gt;&lt;firstname&gt;Vaneet&lt;/firstname&gt;&lt;lastname&gt;Gupta&lt;/lastname&gt;</for>
+  <for>&lt;nickname&gt;Vinni&lt;/nickname&gt;&lt;marks&gt;95&lt;/marks&gt;&lt;/student&gt;&lt;student rollno="593"&gt;</for>
+  <for>
+    &lt;firstname&gt;Jasvir&lt;/firstname&gt;&lt;lastname&gt;Singh&lt;/lastname&gt;&lt;nickname&gt;Jazz&lt;/nickname&gt;
+  </for>
+  <for>&lt;marks&gt;90&lt;/marks&gt;&lt;/student&gt;&lt;/class&gt;</for>
+</article>

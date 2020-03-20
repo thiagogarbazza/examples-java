@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documento codigo="9090" data-base="2019-01-31" tipo-remessa="I">
+  <empresa>12345678901234</>
+  <unidades>
+    <unidade codigo="0001">
+      <contas>
+        <conta codigo="0001">1234567890.01</conta>
+        <conta codigo="0002">1234567890.02</conta>
+      </contas>
+    </unidade>
+    <unidade codigo="0002">
+      <contas>
+        <conta codigo="0001">1234567890.01</conta>
+        <conta codigo="0002">1234567890.02</conta>
+      </contas>
+    </unidade>
+  </unidades>
+</documento>

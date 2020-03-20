@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documento codigo="9090" data-base="2019-01-31" tipo-remessa="I"
+           xmlns:sxl="http://www.any-host.info/resource/example.xsd">
+  <empresa>12345678901234</empresa>
+  <unidades>
+    <unidade codigo="U1">
+      <contas>
+        <conta codigo="U1-C1">1234567890.01</conta>
+        <conta codigo="U1-C2">1234567890.02</conta>
+      </contas>
+    </unidade>
+    <unidade codigo="U2">
+      <contas>
+        <conta codigo="U2-C1">1234567890.01</conta>
+        <conta codigo="U2-C2">1234567890.02</conta>
+      </contas>
+    </unidade>
+  </unidades>
+</documento>

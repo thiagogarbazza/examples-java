@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+           id="documento-xyz"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0.2">
+  <xs:element name="documento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="empresa" type="empresa" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="unidades" type="unidades" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="codigo" type="codigoDocumento" use="required"/>
+      <xs:attribute name="data-base" type="dataBase" use="required"/>
+      <xs:attribute name="tipo-remessa" type="tipoRemessa" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="unidades">
+    <xs:sequence>
+      <xs:element name="unidade" type="unidade" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="unidade">
+    <xs:sequence>
+      <xs:element name="contas" type="contas" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="codigoUnidade" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="contas">
+    <xs:sequence>
+      <xs:element name="conta" type="conta" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="conta">
+    <xs:simpleContent>
+      <xs:extension base="saldoConta">
+        <xs:attribute name="codigo" type="codigoConta" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="codigoDocumento">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z\d]+"/>
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="codigoUnidade">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="U([\d])+"/>
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="2"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="codigoConta">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="U([\d])+-C([\d])+"/>
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="4"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dataBase">
+    <xs:restriction base="xs:date">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minInclusive value="1800-01-01"/>
+      <xs:maxExclusive value="2900-12-31"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoRemessa" final="restriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="S"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="empresa">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z\d]+"/>
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="14"/>
+      <xs:maxLength value="14"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="saldoConta">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18"/>
+      <xs:fractionDigits value="2"/>
+      <xs:minExclusive value="-100000000000000000"/>
+      <xs:maxExclusive value="100000000000000000"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

