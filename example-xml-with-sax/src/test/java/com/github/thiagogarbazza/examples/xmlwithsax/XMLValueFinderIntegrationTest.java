@@ -1,7 +1,6 @@
 package com.github.thiagogarbazza.examples.xmlwithsax;
 
 import com.github.thiagogarbazza.examples.xmlwithsax.valuefinder.XMLValueFinderService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 class XMLValueFinderIntegrationTest {
 
   @BeforeAll
-  static void beforeAll() { GenerateBigFile.generateBigFile();}
+  static void beforeAll() { GenerateXMLBigFile.generateXMLBigFile();}
 
 
   @ParameterizedTest(name = ParameterizedTest.INDEX_PLACEHOLDER + " {0} -> {2}")
@@ -78,7 +77,7 @@ class XMLValueFinderIntegrationTest {
     final File root = ResourceGetter.resourceFile(rootPath);
 
     Collection<Arguments> arguments = getArguments(root, xpathValue);
-    arguments.addAll(getArguments(GenerateBigFile.BIG_FILES_DIR, xpathValue));
+    arguments.addAll(getArguments(GenerateXMLBigFile.BIG_FILES_DIR, xpathValue));
 
     return arguments.stream();
   }

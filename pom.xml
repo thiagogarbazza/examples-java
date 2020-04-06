@@ -19,6 +19,7 @@
     <module>example-jackson-object-mapper</module>
     <module>example-junit-4</module>
     <module>example-junit-jupiter</module>
+    <module>example-json</module>
     <module>example-xml-with-sax</module>
   </modules>
 
@@ -44,6 +45,8 @@
     <dependency.junit-platform-launcher.version>1.6.0</dependency.junit-platform-launcher.version>
     <dependency.h2.version>1.4.200</dependency.h2.version>
     <dependency.hibernate-core.version>5.4.12.Final</dependency.hibernate-core.version>
+    <dependency.json-path.version>2.4.0</dependency.json-path.version>
+    <dependency.json-schema.version>1.3.0</dependency.json-schema.version>
     <dependency.lombok.version>1.18.12</dependency.lombok.version>
     <dependency.saxon-he.version>9.9.1-3</dependency.saxon-he.version>
 
@@ -105,6 +108,11 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>com.jayway.jsonpath</groupId>
+        <artifactId>json-path</artifactId>
+        <version>${dependency.json-path.version}</version>
+      </dependency>
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${dependency.junit-4.version}</version>
@@ -129,6 +137,11 @@
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
         <version>${dependency.apache-poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.everit.json</groupId>
+        <artifactId>org.everit.json.schema</artifactId>
+        <version>${dependency.json-schema.version}</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
@@ -191,6 +204,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${plugin.maven-failsafe.version}</version>
+          <configuration>
+            <argLine>-Xms32m -Xmx4096m</argLine>
+          </configuration>
           <executions>
             <execution>
               <id>integration-test</id>
@@ -247,6 +263,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${plugin.maven-surefire.version}</version>
           <configuration>
+            <argLine>-Xms32m -Xmx4096m</argLine>
             <excludes>
               <exclude>**/*AT.java</exclude>
               <exclude>**/*AcceptanceTest.java</exclude>

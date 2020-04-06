@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Random;
 
-class GenerateBigFile {
+class GenerateXMLBigFile {
 
-  static final File BIG_FILES_DIR = new File(System.getProperty("java.io.tmpdir"), "example-big-xml-files");
+  static final File BIG_FILES_DIR = new File(System.getProperty("java.io.tmpdir"), "example-xml-big-files");
   private static final String BROKEN_LINE = "\n";
   private static final Random RANDOM = new Random();
 
-  static void generateBigFile() {
+  static void generateXMLBigFile() {
     try {
       if (BIG_FILES_DIR.exists()) {
         return;
@@ -21,18 +21,18 @@ class GenerateBigFile {
 
       BIG_FILES_DIR.mkdirs();
 
-      createFile("big-file-MB-1.xml", 1);
-      createFile("big-file-MB-5.xml", 5);
-      createFile("big-file-MB-10.xml", 10);
-      createFile("big-file-MB-100.xml", 100);
-      createFile("big-file-MB-500.xml", 500);
-//      createFile("big-file-MB-1000.xml", 1000);
-//      createFile("big-file-MB-2000.xml", 2000);
-//      createFile("big-file-MB-5000.xml", 5000);
-//      createFile("big-file-MB-10000.xml", 10000);
-//      createFile("big-file-MB-50000.xml", 50000);
-//      createFile("big-file-MB-100000.xml", 100000);
-//      createFile("big-file-MB-200000.xml", 200000);
+      createFile("example-xml-big-file-MB-000001.xml", 1);
+      createFile("example-xml-big-file-MB-000005.xml", 5);
+      createFile("example-xml-big-file-MB-000010.xml", 10);
+      createFile("example-xml-big-file-MB-000100.xml", 100);
+      createFile("example-xml-big-file-MB-000500.xml", 500);
+//      createFile("example-xml-big-file-MB-001000.xml", 1000);
+//      createFile("example-xml-big-file-MB-002000.xml", 2000);
+//      createFile("example-xml-big-file-MB-005000.xml", 5000);
+//      createFile("example-xml-big-file-MB-010000.xml", 10000);
+//      createFile("example-xml-big-file-MB-050000.xml", 50000);
+//      createFile("example-xml-big-file-MB-100000.xml", 100000);
+//      createFile("example-xml-big-file-MB-200000.xml", 200000);
     } catch (IOException e) {
 
     }

@@ -1,6 +1,6 @@
-package com.github.thiagogarbazza.examples.xmlwithsax;
+package com.github.thiagogarbazza.examples.json;
 
-import com.github.thiagogarbazza.examples.xmlwithsax.validator.XMLValidationService;
+import com.github.thiagogarbazza.examples.json.validator.JsonValidationService;
 import com.github.thiagogarbazza.violationbuilder.ViolationBuilder;
 import com.github.thiagogarbazza.violationbuilder.ViolationException;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,57 +20,43 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Tag("xml-validator")
-class XMLValidationIntegrationTest {
+@Tag("json-validator")
+class JsonValidationIntegrationTest {
 
-  public static final String EXAMPLE_SCHEMA_VALIDATOR = "example-schema.xsd";
+  public static final String EXAMPLE_SCHEMA_VALIDATOR = "example-schema.json";
 
   @ParameterizedTest(name = ParameterizedTest.INDEX_PLACEHOLDER + " {0}")
-  @MethodSource("verifyValidateAInvalidXMLBasedAttacksMethodSource")
-  void verifyValidateAInvalidXMLBasedAttacks(String fileName, URI uri) {
+  @MethodSource("verifyValidateAInvalidFileMethodSource")
+  void verifyValidateAInvalidFile(String fileName, URI uri) {
     try (
       InputStream xml = new FileInputStream(new File(uri));
       InputStream xsd = ResourceGetter.resourceInputStream(EXAMPLE_SCHEMA_VALIDATOR)
     ) {
       final ViolationBuilder violationBuilder = ViolationBuilder.builder();
 
-      XMLValidationService.validateXMLByXSD(xml, xsd, violationBuilder);
+      JsonValidationService.validate(xml, xsd, violationBuilder);
 
       violationBuilder.build();
       fail("Expected exception.");
+    } catch (ViolationException e) {
+      assertTrue(e.getViolations().size() != 0);
+      e.getViolations().forEach(
+        message -> System.out.println(String.format("[%s] %s -> %s", message.getType(), message.getKey(), message.getContent())));
     } catch (Exception e) {
-      assertTrue(e instanceof ViolationException, e.getMessage());
+      fail(e);
     }
   }
 
   @ParameterizedTest(name = ParameterizedTest.INDEX_PLACEHOLDER + " {0}")
-  @MethodSource("verifyValidateAInvalidXMLFileMethodSource")
-  void verifyValidateAInvalidXMLFile(String fileName, URI uri) {
+  @MethodSource("verifyValidateAValidFileMethodSource")
+  void verifyValidateAValidFile(String fileName, URI uri) {
     try (
       InputStream xml = new FileInputStream(new File(uri));
       InputStream xsd = ResourceGetter.resourceInputStream(EXAMPLE_SCHEMA_VALIDATOR)
     ) {
       final ViolationBuilder violationBuilder = ViolationBuilder.builder();
 
-      XMLValidationService.validateXMLByXSD(xml, xsd, violationBuilder);
-
-      violationBuilder.build();
-      fail("Expected exception.");
-    } catch (Exception e) {
-      assertTrue(e instanceof ViolationException);
-    }
-  }
-
-  @ParameterizedTest(name = ParameterizedTest.INDEX_PLACEHOLDER + " {0}")
-  @MethodSource("verifyValidateAValidXMLFileMethodSource")
-  void verifyValidateAValidXMLFile(String fileName, URI uri) {
-    try (
-      InputStream xml = new FileInputStream(new File(uri));
-      InputStream xsd = ResourceGetter.resourceInputStream(EXAMPLE_SCHEMA_VALIDATOR)
-    ) {
-      final ViolationBuilder violationBuilder = ViolationBuilder.builder();
-
-      XMLValidationService.validateXMLByXSD(xml, xsd, violationBuilder);
+      JsonValidationService.validate(xml, xsd, violationBuilder);
 
       violationBuilder.build();
     } catch (Exception e) {
@@ -79,23 +65,17 @@ class XMLValidationIntegrationTest {
   }
 
   @BeforeAll
-  static void beforeAll() { GenerateXMLBigFile.generateXMLBigFile();}
+  static void beforeAll() { GenerateJsonBigFile.generateJsonBigFile();}
 
-  static Stream<Arguments> verifyValidateAInvalidXMLBasedAttacksMethodSource() {
-    final Collection<Arguments> arguments = getArguments("example-based-attacks");
-
-    return arguments.stream();
-  }
-
-  static Stream<Arguments> verifyValidateAInvalidXMLFileMethodSource() {
+  static Stream<Arguments> verifyValidateAInvalidFileMethodSource() {
     final Collection<Arguments> arguments = getArguments("example-invalid");
 
     return arguments.stream();
   }
 
-  static Stream<Arguments> verifyValidateAValidXMLFileMethodSource() {
+  static Stream<Arguments> verifyValidateAValidFileMethodSource() {
     final Collection<Arguments> arguments = getArguments("example-valid");
-    arguments.addAll(getArguments(GenerateXMLBigFile.BIG_FILES_DIR));
+    arguments.addAll(getArguments(GenerateJsonBigFile.BIG_FILES_DIR));
 
     return arguments.stream();
   }

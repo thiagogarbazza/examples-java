@@ -1,0 +1,17 @@
+{
+  "codigo": 1234,
+  "dataBase": "2019-01-31",
+  "tipoRemessa": "Z",
+  "empresa": "12345678901234",
+  "unidades": [
+    {
+      "codigo": "U1",
+      "contas": [
+        {
+          "codigo": "U1-C1",
+          "valor": 1234567890.01
+        }
+      ]
+    }
+  ]
+}
