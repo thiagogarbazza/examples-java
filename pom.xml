@@ -39,7 +39,7 @@
     <dependency.commons-lang3.version>3.9</dependency.commons-lang3.version>
     <dependency.commons-collections4.version>4.4</dependency.commons-collections4.version>
     <dependency.commons-logging.version>1.2</dependency.commons-logging.version>
-    <dependency.jackson.version>2.10.2</dependency.jackson.version>
+    <dependency.jackson.version>2.13.4.1</dependency.jackson.version>
     <dependency.junit-4.version>4.13</dependency.junit-4.version>
     <dependency.junit-jupiter.version>5.6.0</dependency.junit-jupiter.version>
     <dependency.junit-platform-launcher.version>1.6.0</dependency.junit-platform-launcher.version>
