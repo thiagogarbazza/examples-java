@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema",
+  "$id": "http://examples-java.com/examples-schema.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": ["codigoDocumento", "dataBase", "tipoRemessa", "cnpj", "unidades"],
+  "additionalProperties": false,
+  "properties": {
+    "codigoDocumento": {
+      "$id": "#/properties/codigoDocumento",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9999,
+      "title": "The Codigo do Documento Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [1234]
+    },
+    "dataBase": {
+      "$id": "#/properties/dataBase",
+      "type": "string",
+      "pattern": "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$",
+      "title": "The dataBase Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": ["2019-01-31"]
+    },
+    "tipoRemessa": {
+      "$id": "#/properties/tipoRemessa",
+      "type": "string",
+      "enum": ["E", "I", "S"],
+      "title": "The tipoRemessa Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": ["I"]
+    },
+    "cnpj": {
+      "$id": "#/properties/cnpj",
+      "type": "string",
+      "pattern": "[0-9]+",
+      "minLength": 8,
+      "maxLength": 8,
+      "title": "The CMPJ Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": ["00000000"]
+    },
+    "unidades": {
+      "$id": "#/properties/unidades",
+      "type": "array",
+      "minItems": 1,
+      "title": "The Unidades Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "items": {
+        "$id": "#/properties/unidades/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": {},
+        "examples": [
+          {
+            "codigo": "U1",
+            "contas": [
+              {
+                "valor": 1234567890.01,
+                "codigo": "U1-C1"
+              }
+            ]
+          }
+        ],
+        "required": ["codigo", "contas"],
+        "additionalProperties": false,
+        "properties": {
+          "codigo": {
+            "$id": "#/properties/unidades/items/properties/codigo",
+            "type": "string",
+            "pattern": "U([\\d])+",
+            "title": "The Codigo Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": ["U1"]
+          },
+          "contas": {
+            "$id": "#/properties/unidades/items/properties/contas",
+            "type": "array",
+            "minItems": 1,
+            "title": "The Contas Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "items": {
+              "$id": "#/properties/unidades/items/properties/contas/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "valor": 1234567890.01,
+                  "codigo": "U1-C1"
+                }
+              ],
+              "required": ["codigo", "valor"],
+              "additionalProperties": false,
+              "properties": {
+                "codigo": {
+                  "$id": "#/properties/unidades/items/properties/contas/items/properties/codigo",
+                  "type": "string",
+                  "pattern": "U([\\d])+-C([\\d])+",
+                  "title": "The Codigo Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": ["U1-C1"]
+                },
+                "valor": {
+                  "$id": "#/properties/unidades/items/properties/contas/items/properties/valor",
+                  "type": "number",
+                  "title": "The Valor Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [1234567890.01]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
